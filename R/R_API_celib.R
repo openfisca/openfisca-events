@@ -4,7 +4,6 @@
 # 1. converts an input data to a json file
 # 2. get the results from the API and converts them to R data the outputs
 
-
 #####   0. Preparation  #####
 # Warning : order matters in packages loading
 library(rjson)
@@ -26,7 +25,7 @@ source("R_json.R")
 var <-  4
 data <- array(NA, dim=c(var,3))
 data[1,] <-  c("cadre", "true", 0)			# or "false"
-data[2,] <-  c("activite", "Actif occupé", 1)
+data[2,] <-  c("activite", "Actif occupÃ©", 1)
 data[3,] <-  c("birth", "1970", 0)			# birth year
 data[4,] <-  c("sali", "20000", 0)		# taxable income 
 # O if boolean of numerical values // 1 if character
@@ -46,14 +45,4 @@ json_input <- R_to_json(data)
 ## Get the results : Output = Openfisca(Input)
 ## json output file is converted to R dataframe object
 result <- json_to_R(json_input)
-
-
-
-fromJSON(result_celib)
-response = content(result_celib)
-str(response)
-as.data.frame(response$value)
-
-
-### 4. EXAMPLES
 

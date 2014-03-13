@@ -48,9 +48,8 @@ R_to_json <- function(data) {
 	j_out <- noquote(paste(chaine_deb, chaine, chaine_fin, sep=""))
 	return(j_out)
 }
-
 json_to_R <- function(input){
-	result_sim <-  POST(url='http://api.openfisca.fr/api/1/simulate', body = json_input,
+	result_sim <-  POST(url='http://api.openfisca.fr/api/1/simulate', body = input,
           add_headers('Content-Type'= 'application/json',
                       'User-Agent'='OpenFisca-Notebook'))
 	res <- content(result_sim)
@@ -58,11 +57,11 @@ json_to_R <- function(input){
 	df_out<-data.frame(res$value)
 	df_final <- data.frame()
 	for (i in 1:dim(df_out)[1]){
-  		values <- t(as.data.frame(df_out$values[[i]]))
-  		rownames(values)<- c(df_out$code[[i]])
+ 		values <- t(as.data.frame(df_out$values[[i]]))
+ 		rownames(values)<- c(df_out$code[[i]])
 		df_final <- rbind(df_final,values)
 	}
-	colnames(df_final) <- "Values"
+#	colnames(df_final) <- "Values"
 	ifelse(result_sim $status_code != 200,print("Error during calculation"),return(df_final))
 }
 
