@@ -11,7 +11,7 @@ json_celib <- '{
                {"count": 2, "max": 3000, "name": "loyer", "min": 1000}], 
       "test_case": {
           "foyers_fiscaux": [{"declarants": ["ind0"]}], 
-          "individus": [{"cadre": true, "activite": "Actif occupÈ", "statmarit": "CÈlibataire", "id": "ind0", "birth": 1970}], 
+          "individus": [{"cadre": true, "activite": "Actif occupé", "statmarit": "Célibataire", "id": "ind0", "birth": 1970}], 
           "familles": [{"parents": ["ind0"]}], 
           "menages": [{"personne_de_reference": "ind0"}]}, 
       "year": 2013}], 

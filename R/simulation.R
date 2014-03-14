@@ -1,3 +1,4 @@
+rm(list=ls())
 #####   0. Preparation  #####
 # On appelle des packages suivants. Attention: Il est important des les appeler dans cet ordre !!
 library(rjson)
@@ -10,9 +11,10 @@ library(ggplot2)
 
 #### A convenient function 
 simulate_json <- function(json_object){
+
     object <- fromJSON(json_object)
     ## Get axes
-    axes = celib$scenarios$axes[[1]]["name"]
+    axes = object$scenarios$axes[[1]]["name"]
 
     ## Get the results
     result <- POST(url='http://api.openfisca.fr/api/1/simulate', body =json_object,
@@ -32,11 +34,11 @@ simulate_json <- function(json_object){
     ## Building the computed melted value data.frame
     df = cbind(values,title,code)
     rownames(df) <- NULL
-    df$code %in% axe_code$name
+    df$code %in% axes$name
     mdf = melt(df, id.vars = c("description","code"), variable.name="axis")
 
     ## Building the melted axis
-    extracted_axis= df[df$code %in% axe_code$name,]
+    extracted_axis= df[df$code %in% axes$name,]
     x = melt(extracted_axis, id.vars ="code", variable.name = "axis")
 
     axes_var= dcast(x, axis~code)
@@ -51,7 +53,7 @@ simulate_json <- function(json_object){
 
 json_celib <- '{"scenarios":
 [{"axes":
-      [{"count": 10000, "max": 50000, "name": "sali", "min": 0},
+      [{"count": 1000, "max": 50000, "name": "sali", "min": 0},
        {"count": 2, "max": 3000, "name": "loyer", "min": 1000}],
   "test_case":
       {"foyers_fiscaux":
