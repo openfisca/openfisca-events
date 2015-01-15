@@ -5,11 +5,8 @@
 [OpenFisca](http://www.openfisca.fr/) is a versatile microsimulation free software.
 This repository contains some [IPython Notebook](http://ipython.org/notebook.html) files using OpenFisca.
 
-To view a notebook, please use the online [nbviewer](http://nbviewer.ipython.org/) like this:
-http://nbviewer.ipython.org/github/openfisca/openfisca-web-notebook/blob/master/presentation-openfisca.ipynb
-
-Replace `presentation-openfisca.ipynb` by the desired file name.
-
+To view a notebook, please browse this repository into the online [nbviewer](http://nbviewer.ipython.org/):
+http://nbviewer.ipython.org/github/openfisca/openfisca-web-notebook/tree/master/
 
 Please consult http://www.openfisca.fr/presentation
 
