@@ -1,2 +1,4 @@
-.R/.Rhistory
+*.pyc
 .ipynb_checkpoints
+.RData
+.Rhistory
